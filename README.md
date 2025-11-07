@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DPO Studio
 
-## Getting Started
+European GDPR Compliance Platform - SaaS admin layer for tenant management, billing, and whitelabel configurations.
 
-First, run the development server:
+## Overview
+
+DPO Studio is the administrative and business layer of the DPOstudio.ai platform, providing:
+
+- **Tenant Management**: Onboarding and organization management
+- **Billing & Plans**: Subscription management and pricing configuration  
+- **Whitelabel Configuration**: Partner branding and customization
+- **Module Access**: DPIA Studio, ROPA Studio, AI Impact Studio
+
+## Quick Start
+
+### Prerequisites
+
+- Node.js 20+
+- pnpm 9+
+- Environment variables configured
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Clone repository
+git clone https://github.com/avantlehq/dpo-studio-ai.git
+cd dpo-studio-ai
+
+# Install dependencies
+pnpm install
+
+# Configure environment
+cp .env.example .env.local
+# Edit .env.local with your configuration
+
+# Start development server
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build & Deploy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Build for production
+pnpm build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Start production server
+pnpm start
 
-## Learn More
+# Lint code
+pnpm lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Environment Configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `NEXT_PUBLIC_ENV` | Environment type | `local` |
+| `NEXT_PUBLIC_AGENT_BASE_URL` | DPO Agent API URL | `https://dpo.avantle.ai` |
+| `DATABASE_URL` | Database connection string | - |
+| `JWT_SECRET` | JWT signing secret | - |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+### Vercel Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Connect repository to Vercel
+2. Configure domain: `dpostudio.ai`
+3. Set environment variables in Vercel dashboard
+4. Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Custom Deployment
+
+1. Build the application: `pnpm build`
+2. Configure reverse proxy (nginx/Apache)
+3. Set environment variables
+4. Start with `pnpm start`
+
+## API Integration
+
+This platform integrates with the DPO Agent API at `dpo.avantle.ai`:
+
+- `POST /api/provision` - Create new tenant
+- Authentication via JWT tokens
+- Rate limiting per tenant
+
+## Architecture
+
+```
+src/
+├── app/
+│   ├── admin/           # Admin dashboard
+│   ├── modules/         # GDPR compliance modules
+│   │   ├── dpia/        # Data Protection Impact Assessment
+│   │   ├── ropa/        # Record of Processing Activities  
+│   │   └── aiimpact/    # AI Impact Assessment
+│   └── page.tsx         # Landing page
+├── components/          # Reusable UI components
+└── lib/                 # Utilities and configurations
+```
+
+## Development
+
+- Framework: Next.js 15 with App Router
+- Styling: Tailwind CSS
+- TypeScript: Full type safety
+- CI/CD: GitHub Actions
+
+## Security
+
+- Strict CSP headers
+- JWT-based authentication
+- Rate limiting
+- No PII in logs
+- Security headers configured
+
+## License
+
+Private repository - All rights reserved by Avantle.ai

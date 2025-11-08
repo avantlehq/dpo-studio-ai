@@ -2,6 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import Link from "next/link";
+import { Topbar } from '../components/layout/Topbar';
+import { ModuleSidebar } from '../components/layout/ModuleSidebar';
+import { ProjectSidebar } from '../components/layout/ProjectSidebar';
+import { WizardPanel } from '../components/layout/WizardPanel';
+import { ChatPanel } from '../components/layout/ChatPanel';
 
 type ViewMode = 'login' | 'app';
 
@@ -116,48 +121,62 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen p-8">
-      <div className="max-w-4xl mx-auto">
-        <header className="text-center mb-12">
-          <div className="flex justify-between items-center mb-4">
-            <h1 className="text-4xl font-bold">DPO Studio</h1>
-            <button 
-              onClick={handleLogout}
-              className="px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
-            >
-              Logout
-            </button>
+    <div className="h-screen flex flex-col bg-background">
+      <Topbar />
+      
+      <div className="flex-1 flex overflow-hidden">
+        {/* Desktop Layout: 4 columns */}
+        <div className="hidden 2xl:flex w-full">
+          {/* C1: Modules */}
+          <div className="w-60 border-r">
+            <ModuleSidebar />
           </div>
-          <p className="text-xl text-gray-600">
-            European GDPR Compliance Platform
-          </p>
-        </header>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <Link href="/admin" className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-            <h2 className="text-xl font-semibold mb-2">Admin Panel</h2>
-            <p className="text-gray-600">Tenant management, billing, and platform configuration</p>
-          </Link>
-
-          <Link href="/modules/dpia" className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-            <h2 className="text-xl font-semibold mb-2">DPIA Studio</h2>
-            <p className="text-gray-600">Data Protection Impact Assessment automation</p>
-          </Link>
-
-          <Link href="/modules/ropa" className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-            <h2 className="text-xl font-semibold mb-2">ROPA Studio</h2>
-            <p className="text-gray-600">Record of Processing Activities management</p>
-          </Link>
-
-          <Link href="/modules/aiimpact" className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-            <h2 className="text-xl font-semibold mb-2">AI Impact Studio</h2>
-            <p className="text-gray-600">AI Act compliance and risk assessment</p>
-          </Link>
+          
+          {/* C2: Projects */}
+          <div className="w-80 border-r">
+            <ProjectSidebar />
+          </div>
+          
+          {/* C3: Wizard */}
+          <div className="flex-1">
+            <WizardPanel />
+          </div>
+          
+          {/* C4: Chat */}
+          <div className="w-96 border-l">
+            <ChatPanel />
+          </div>
         </div>
 
-        <footer className="text-center text-gray-500">
-          <p>Powered by Avantle.ai • Privacy by Design • Intelligence by Default</p>
-        </footer>
+        {/* Large screens: Hide chat in sheet */}
+        <div className="hidden xl:flex 2xl:hidden w-full">
+          {/* C1: Modules */}
+          <div className="w-60 border-r">
+            <ModuleSidebar />
+          </div>
+          
+          {/* C2: Projects */}
+          <div className="w-80 border-r">
+            <ProjectSidebar />
+          </div>
+          
+          {/* C3: Wizard */}
+          <div className="flex-1">
+            <WizardPanel />
+          </div>
+          
+          {/* TODO: C4 Chat Sheet - will implement in next steps */}
+        </div>
+
+        {/* Medium screens: Hide modules+projects in sheet */}
+        <div className="flex xl:hidden w-full">
+          {/* Main content: Wizard */}
+          <div className="flex-1">
+            <WizardPanel />
+          </div>
+          
+          {/* TODO: Left/Right Sheets - will implement in next steps */}
+        </div>
       </div>
     </div>
   );

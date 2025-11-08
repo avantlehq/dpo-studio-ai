@@ -1,37 +1,39 @@
 export function WizardPanel() {
   return (
-    <div className="h-full flex flex-col">
-      <div className="h-10 px-4 flex items-center justify-between bg-muted/30" style={{ borderBottom: '1px solid hsl(var(--border))' }}>
-        <h2 className="text-sm font-medium">DPIA Wizard</h2>
-        <div className="flex items-center space-x-2">
-          <button className="text-xs text-muted-foreground hover:text-foreground">
-            Save Draft
-          </button>
-          <button className="text-xs bg-primary text-primary-foreground px-2 py-1 rounded">
-            Next Step
-          </button>
+    <div className="h-full flex flex-col bg-background">
+      <div className="p-4 border-b bg-card">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
+            DPIA Wizard
+          </h2>
+          <div className="flex items-center gap-2">
+            <button className="text-xs text-muted-foreground hover:text-foreground transition-colors px-2 py-1 rounded">
+              Save Draft
+            </button>
+            <button className="text-xs bg-primary text-primary-foreground px-3 py-1 rounded transition-colors hover:bg-primary/90">
+              Next Step
+            </button>
+          </div>
         </div>
-      </div>
-      
-      {/* Stepper */}
-      <div className="px-4 py-3" style={{ borderBottom: '1px solid hsl(var(--border))' }}>
-        <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-2">
-            <div className="w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center">
+        
+        {/* Stepper */}
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center font-medium">
               1
             </div>
             <span className="text-sm font-medium">Data Mapping</span>
           </div>
-          <div className="flex-1 h-px bg-gray-200"></div>
-          <div className="flex items-center space-x-2">
-            <div className="w-6 h-6 rounded-full bg-gray-200 text-gray-500 text-xs flex items-center justify-center">
+          <div className="flex-1 h-px bg-border"></div>
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-full bg-muted text-muted-foreground text-xs flex items-center justify-center">
               2
             </div>
             <span className="text-sm text-muted-foreground">Risk Assessment</span>
           </div>
-          <div className="flex-1 h-px bg-gray-200"></div>
-          <div className="flex items-center space-x-2">
-            <div className="w-6 h-6 rounded-full bg-gray-200 text-gray-500 text-xs flex items-center justify-center">
+          <div className="flex-1 h-px bg-border"></div>
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-full bg-muted text-muted-foreground text-xs flex items-center justify-center">
               3
             </div>
             <span className="text-sm text-muted-foreground">Controls</span>
@@ -39,44 +41,44 @@ export function WizardPanel() {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4">
-        <div className="space-y-6">
+      <div className="flex-1 overflow-y-auto p-6">
+        <div className="max-w-2xl space-y-8">
           <div>
-            <h3 className="text-lg font-medium mb-4">Step 1: Data Mapping</h3>
-            <p className="text-sm text-muted-foreground mb-6">
+            <h3 className="text-lg font-semibold mb-3">Step 1: Data Mapping</h3>
+            <p className="text-sm text-muted-foreground">
               Identify and categorize the personal data being processed in your project.
             </p>
           </div>
 
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium mb-2">
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-foreground">
                 Project Name
               </label>
               <input 
                 type="text" 
                 placeholder="Enter project name"
-                className="w-full p-2 border rounded-md"
+                className="w-full px-3 py-2 bg-background border border-input rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-medium mb-2">
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-foreground">
                 Data Categories
               </label>
               <textarea 
                 placeholder="Describe the types of personal data being processed..."
-                className="w-full p-2 border rounded-md h-20"
+                className="w-full px-3 py-2 bg-background border border-input rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[80px] resize-none"
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-medium mb-2">
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-foreground">
                 Processing Purposes
               </label>
               <textarea 
                 placeholder="Explain why this data is being processed..."
-                className="w-full p-2 border rounded-md h-20"
+                className="w-full px-3 py-2 bg-background border border-input rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-[80px] resize-none"
               />
             </div>
           </div>

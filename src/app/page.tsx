@@ -7,6 +7,7 @@ import { ModuleSidebar } from '../components/layout/ModuleSidebar';
 import { ProjectSidebar } from '../components/layout/ProjectSidebar';
 import { WizardPanel } from '../components/layout/WizardPanel';
 import { ChatPanel } from '../components/layout/ChatPanel';
+import { Footer } from '../components/layout/Footer';
 
 type ViewMode = 'login' | 'app';
 
@@ -128,7 +129,7 @@ export default function Home() {
         {/* Fixed 4-column layout */}
         <div className="flex w-full gap-0">
           {/* C1: Modules */}
-          <div className="w-60 bg-card" style={{ borderRight: '1px solid hsl(var(--border))' }}>
+          <div className="w-72 bg-card" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ModuleSidebar />
           </div>
           
@@ -148,6 +149,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

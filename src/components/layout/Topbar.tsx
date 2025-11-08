@@ -11,25 +11,25 @@ export function Topbar({ onLogout }: TopbarProps) {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
 
   return (
-    <header className="h-20 border-b border-border bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/60 flex-shrink-0">
+    <header className="h-24 border-b border-border bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/60 flex-shrink-0">
       <div className="flex items-center justify-between h-full px-8">
         {/* Left section */}
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
-            <div className="h-10 w-10 rounded bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-base">D</span>
+            <div className="h-12 w-12 rounded bg-primary flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-lg">D</span>
             </div>
             <div className="hidden sm:block">
-              <h1 className="font-semibold text-xl">
+              <h1 className="font-semibold text-2xl">
                 DPO<span className="text-primary">studio.ai</span>
               </h1>
-              <div className="text-sm text-muted-foreground">v{APP_VERSION} • HEIGHT+COMPACT</div>
+              <div className="text-base text-muted-foreground">v{APP_VERSION} • REFINED</div>
             </div>
           </div>
         </div>
 
         {/* Center - Search */}
-        <div className="w-64 mx-8">
+        <div className="w-96 mx-8">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <input

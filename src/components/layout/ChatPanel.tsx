@@ -1,13 +1,13 @@
 export function ChatPanel() {
   return (
     <div className="h-full flex flex-col bg-muted/20">
-      <div className="p-4 border-b">
+      <div className="p-3 border-b">
         <h2 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
           AI Assistant
         </h2>
       </div>
       
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 overflow-y-auto p-3 space-y-3">
         <div className="flex items-start gap-3">
           <div className="w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center font-medium flex-shrink-0">
             AI
@@ -54,7 +54,7 @@ export function ChatPanel() {
         </div>
       </div>
 
-      <div className="p-4 border-t">
+      <div className="p-3 border-t">
         <div className="flex gap-2">
           <input 
             type="text" 

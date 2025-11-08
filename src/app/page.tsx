@@ -129,7 +129,7 @@ export default function Home() {
         {/* Desktop Layout: 4 columns - like TextNotepad */}
         <div className="flex w-full h-full">
           {/* C1: Modules */}
-          <div className="w-80 bg-card border-r flex-shrink-0">
+          <div className="w-96 bg-card border-r flex-shrink-0">
             <ModuleSidebar />
           </div>
           

@@ -23,7 +23,7 @@ export function Topbar({ onLogout }: TopbarProps) {
               <h1 className="font-semibold text-xl">
                 DPO<span className="text-primary">studio.ai</span>
               </h1>
-              <div className="text-sm text-muted-foreground">v{APP_VERSION}</div>
+              <div className="text-sm text-muted-foreground">v{APP_VERSION} • LARGE</div>
             </div>
           </div>
         </div>

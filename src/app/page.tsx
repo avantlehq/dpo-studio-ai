@@ -125,11 +125,11 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-background">
       <Topbar onLogout={handleLogout} />
       
-      <div className="flex-1 flex overflow-hidden max-h-[calc(75vh-100px)]">
+      <div className="flex-1 flex overflow-hidden">
         {/* Fixed 4-column layout */}
         <div className="flex w-full gap-0 h-full">
           {/* C1: Modules */}
-          <div className="w-72 bg-card" style={{ borderRight: '1px solid hsl(var(--border))' }}>
+          <div className="w-80 bg-card" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ModuleSidebar />
           </div>
           

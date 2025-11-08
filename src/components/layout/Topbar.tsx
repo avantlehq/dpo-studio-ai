@@ -1,12 +1,21 @@
 import { APP_VERSION } from '@/lib/version';
-import { Search, Settings, LogOut, User } from 'lucide-react';
+import { Search, Settings, LogOut, User, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 
 interface TopbarProps {
   onLogout?: () => void;
+  selectedModule?: string;
+  breadcrumb?: string[];
 }
 
-export function Topbar({ onLogout }: TopbarProps) {
+const MODULE_NAMES: Record<string, string> = {
+  'dpia': 'DPIA Studio',
+  'ropa': 'ROPA Studio', 
+  'aiimpact': 'AI Impact',
+  'admin': 'Admin Panel'
+};
+
+export function Topbar({ onLogout, selectedModule = 'dpia', breadcrumb = ['DPIA Studio'] }: TopbarProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
 
@@ -23,23 +32,43 @@ export function Topbar({ onLogout }: TopbarProps) {
               <h1 className="font-semibold text-2xl">
                 DPO<span className="text-primary">studio.ai</span>
               </h1>
-              <div className="text-base text-muted-foreground">v{APP_VERSION} • REFINED</div>
+              <div className="text-base text-muted-foreground">v{APP_VERSION} • NAVIGATION</div>
             </div>
           </div>
         </div>
 
-        {/* Center - Search */}
-        <div className="w-96 mx-8">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <input
-              placeholder="Search GDPR projects..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onFocus={() => setIsSearchFocused(true)}
-              onBlur={() => setIsSearchFocused(false)}
-              className="w-full pl-10 pr-4 py-2 text-sm bg-background border border-input rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-            />
+        {/* Center - Search & Breadcrumb */}
+        <div className="flex-1 mx-8 flex items-center justify-center">
+          <div className="w-96">
+            {/* Breadcrumb */}
+            <div className="flex items-center text-sm text-muted-foreground mb-2">
+              <span className="font-medium text-foreground">{MODULE_NAMES[selectedModule] || 'DPO Studio'}</span>
+              {breadcrumb.length > 1 && (
+                <>
+                  {breadcrumb.slice(1).map((crumb, index) => (
+                    <div key={index} className="flex items-center">
+                      <ChevronRight className="h-3 w-3 mx-1" />
+                      <span className={index === breadcrumb.length - 2 ? 'text-foreground' : ''}>
+                        {crumb}
+                      </span>
+                    </div>
+                  ))}
+                </>
+              )}
+            </div>
+            
+            {/* Search */}
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <input
+                placeholder={`Search in ${MODULE_NAMES[selectedModule] || 'DPO Studio'}...`}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setIsSearchFocused(true)}
+                onBlur={() => setIsSearchFocused(false)}
+                className="w-full pl-10 pr-4 py-2 text-sm bg-background border border-input rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              />
+            </div>
           </div>
         </div>
 

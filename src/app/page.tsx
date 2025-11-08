@@ -9,6 +9,15 @@ import { WizardPanel } from '../components/layout/WizardPanel';
 import { ChatPanel } from '../components/layout/ChatPanel';
 import { Footer } from '../components/layout/Footer';
 
+interface Module {
+  id: string;
+  name: string;
+  color: string;
+  route?: string;
+  status: 'active' | 'beta' | 'coming_soon';
+  description: string;
+}
+
 type ViewMode = 'login' | 'app';
 
 // Demo passwords for different access levels
@@ -23,6 +32,16 @@ export default function Home() {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [selectedModule, setSelectedModule] = useState<string>('dpia');
+  const [currentView, setCurrentView] = useState<string>('wizard');
+  const [breadcrumb, setBreadcrumb] = useState<string[]>(['DPIA Studio']);
+
+  const MODULE_NAMES: Record<string, string> = {
+    'dpia': 'DPIA Studio',
+    'ropa': 'ROPA Studio', 
+    'aiimpact': 'AI Impact',
+    'admin': 'Admin Panel'
+  };
 
   useEffect(() => {
     // Check if user already has access from previous session
@@ -61,6 +80,13 @@ export default function Home() {
   const handleLogout = () => {
     localStorage.removeItem('dpostudio-access');
     setViewMode('login');
+  };
+
+  const handleModuleSelect = (module: Module) => {
+    setSelectedModule(module.id);
+    setBreadcrumb([module.name]);
+    // Don't navigate away, keep the 4-column layout
+    // Module content will be shown in the wizard panel
   };
 
   if (viewMode === 'login') {
@@ -123,14 +149,14 @@ export default function Home() {
 
   return (
     <div className="fixed inset-0 flex flex-col overflow-hidden bg-background" style={{ height: '100vh', width: '100vw' }}>
-      <Topbar onLogout={handleLogout} />
+      <Topbar onLogout={handleLogout} selectedModule={selectedModule} breadcrumb={breadcrumb} />
       
       <div className="flex-1 flex overflow-hidden">
         {/* Desktop Layout: 4 columns - like TextNotepad */}
         <div className="flex w-full h-full">
           {/* C1: Modules */}
           <div className="w-96 bg-card border-r flex-shrink-0">
-            <ModuleSidebar />
+            <ModuleSidebar onModuleSelect={handleModuleSelect} selectedModule={selectedModule} />
           </div>
           
           {/* C2: Projects */}
@@ -140,7 +166,7 @@ export default function Home() {
           
           {/* C3: Wizard - takes remaining space */}
           <div className="flex-1 bg-card min-w-0">
-            <WizardPanel />
+            <WizardPanel selectedModule={selectedModule} />
           </div>
           
           {/* C4: Chat */}

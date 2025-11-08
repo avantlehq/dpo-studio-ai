@@ -52,7 +52,7 @@ const MODULES: Module[] = [
 ];
 
 export function ModuleSidebar({ onModuleSelect, selectedModule }: ModuleSidebarProps) {
-  const [hoveredModule, setHoveredModule] = useState<string | null>(null);
+  const [, setHoveredModule] = useState<string | null>(null);
 
   const handleModuleClick = (module: Module) => {
     if (module.route) {

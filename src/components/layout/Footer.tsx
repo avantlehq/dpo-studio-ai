@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="h-10 px-6 flex items-center justify-between bg-muted/30 text-xs text-muted-foreground" style={{ borderTop: '1px solid hsl(var(--border))' }}>
+    <footer className="h-8 px-6 flex items-center justify-between bg-muted/30 text-xs text-muted-foreground flex-shrink-0" style={{ borderTop: '1px solid hsl(var(--border))' }}>
       <div className="flex items-center gap-4">
         <span>© 2024 Avantle.ai</span>
         <span>•</span>

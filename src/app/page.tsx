@@ -128,12 +128,12 @@ export default function Home() {
         {/* Fixed 4-column layout */}
         <div className="flex w-full gap-0">
           {/* C1: Modules */}
-          <div className="w-60 bg-card hidden sm:block" style={{ borderRight: '1px solid hsl(var(--border))' }}>
+          <div className="w-60 bg-card" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ModuleSidebar />
           </div>
           
           {/* C2: Projects */}
-          <div className="w-80 bg-card hidden md:block" style={{ borderRight: '1px solid hsl(var(--border))' }}>
+          <div className="w-80 bg-card" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ProjectSidebar />
           </div>
           
@@ -143,7 +143,7 @@ export default function Home() {
           </div>
           
           {/* C4: Chat */}
-          <div className="w-96 bg-card hidden lg:block" style={{ borderLeft: '1px solid hsl(var(--border))' }}>
+          <div className="w-96 bg-card" style={{ borderLeft: '1px solid hsl(var(--border))' }}>
             <ChatPanel />
           </div>
         </div>

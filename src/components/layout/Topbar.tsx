@@ -20,44 +20,28 @@ export function Topbar({ onLogout, selectedModule = 'dpia', breadcrumb = ['DPIA 
   const [, setIsSearchFocused] = useState(false);
 
   return (
-    <header className="h-28 border-b border-border bg-gradient-to-r from-card/60 via-card/70 to-card/60 backdrop-blur supports-[backdrop-filter]:bg-card/60 flex-shrink-0">
+    <header className="h-34 border-b border-border bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/60 flex-shrink-0">
       <div className="flex items-center justify-between h-full px-8">
-        {/* Left section */}
+        {/* Left section - Home button with version */}
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <div className="h-12 w-12 rounded bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">D</span>
+          <button className="flex items-center gap-2 hover:bg-accent/50 px-2 py-1 rounded transition-colors">
+            <div className="h-8 w-8 rounded bg-primary flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-sm">D</span>
             </div>
-            <div className="hidden sm:block">
-              <h1 className="font-semibold text-2xl">
+            <div className="flex items-center gap-2">
+              <h1 className="font-semibold text-lg">
                 DPO<span className="text-primary">studio.ai</span>
               </h1>
-              <div className="text-base text-muted-foreground">v{APP_VERSION} • POLISHED</div>
+              <div className="text-xs text-muted-foreground bg-muted px-1.5 py-0.5 rounded">
+                v{APP_VERSION}
+              </div>
             </div>
-          </div>
+          </button>
         </div>
 
-        {/* Center - Search & Breadcrumb */}
+        {/* Center - Search */}
         <div className="flex-1 mx-8 flex items-center justify-center">
           <div className="w-96">
-            {/* Breadcrumb */}
-            <div className="flex items-center text-sm text-muted-foreground mb-2">
-              <span className="font-medium text-foreground">{MODULE_NAMES[selectedModule] || 'DPO Studio'}</span>
-              {breadcrumb.length > 1 && (
-                <>
-                  {breadcrumb.slice(1).map((crumb, index) => (
-                    <div key={index} className="flex items-center">
-                      <ChevronRight className="h-3 w-3 mx-1" />
-                      <span className={index === breadcrumb.length - 2 ? 'text-foreground' : ''}>
-                        {crumb}
-                      </span>
-                    </div>
-                  ))}
-                </>
-              )}
-            </div>
-            
-            {/* Search */}
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <input

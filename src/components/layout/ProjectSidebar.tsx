@@ -215,16 +215,12 @@ export function ProjectSidebar({ selectedModule = 'dpia', onProjectSelect, selec
                 }`}
                 onClick={() => handleProjectClick(project)}
               >
-                <div className="flex justify-between items-start mb-2">
+                <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium truncate pr-2">{project.name}</span>
                   <span className={`text-xs px-1.5 py-0.5 rounded flex-shrink-0 ${statusConfig.color}`}>
                     {project.status}
                   </span>
                 </div>
-                
-                <p className="text-xs text-muted-foreground mb-2 line-clamp-2">
-                  {project.description}
-                </p>
                 
                 {/* Progress bar */}
                 <div className="mb-2">

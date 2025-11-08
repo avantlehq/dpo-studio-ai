@@ -13,7 +13,7 @@ type ViewMode = 'login' | 'app';
 
 // Demo passwords for different access levels
 const DEMO_PASSWORDS = {
-  'dpostudio2024': 'demo',
+  '123': 'demo',
   'gdpr-preview': 'preview', 
   'admin-access': 'admin'
 };
@@ -65,8 +65,8 @@ export default function Home() {
 
   if (viewMode === 'login') {
     return (
-      <main className="min-h-screen bg-background flex items-center justify-center">
-        <div className="bg-card border border-border rounded-2xl p-8 max-w-md w-full mx-4 shadow-lg">
+      <main className="min-h-screen bg-background flex items-center justify-center px-4">
+        <div className="bg-card border border-border rounded-2xl p-8 w-full max-w-sm shadow-lg">
           <div className="text-center mb-8">
             <div className="h-12 w-12 rounded-xl bg-primary flex items-center justify-center mx-auto mb-4">
               <span className="text-primary-foreground font-bold text-xl">D</span>
@@ -122,12 +122,12 @@ export default function Home() {
   }
 
   return (
-    <div className="h-screen flex flex-col bg-background">
+    <div className="h-screen flex flex-col bg-background max-w-7xl mx-auto">
       <Topbar onLogout={handleLogout} />
       
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex overflow-hidden min-h-0">
         {/* Fixed 4-column layout */}
-        <div className="flex w-full gap-0">
+        <div className="flex w-full gap-0 min-h-0">
           {/* C1: Modules */}
           <div className="w-72 bg-card" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ModuleSidebar />

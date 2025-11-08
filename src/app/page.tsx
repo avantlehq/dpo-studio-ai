@@ -122,29 +122,29 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="fixed inset-0 flex flex-col overflow-hidden bg-background">
       <Topbar onLogout={handleLogout} />
       
       <div className="flex-1 flex overflow-hidden">
-        {/* Desktop Layout: 4 columns - like Notes */}
+        {/* Desktop Layout: 4 columns - like TextNotepad */}
         <div className="flex w-full h-full">
           {/* C1: Modules */}
-          <div className="w-80 bg-card border-r">
+          <div className="w-80 bg-card border-r flex-shrink-0">
             <ModuleSidebar />
           </div>
           
           {/* C2: Projects */}
-          <div className="w-80 bg-card border-r">
+          <div className="w-80 bg-card border-r flex-shrink-0">
             <ProjectSidebar />
           </div>
           
           {/* C3: Wizard - takes remaining space */}
-          <div className="flex-1 bg-card">
+          <div className="flex-1 bg-card min-w-0">
             <WizardPanel />
           </div>
           
           {/* C4: Chat */}
-          <div className="w-96 bg-card border-l">
+          <div className="w-96 bg-card border-l flex-shrink-0">
             <ChatPanel />
           </div>
         </div>

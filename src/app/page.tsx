@@ -7,6 +7,7 @@ import { ModuleSidebar } from '../components/layout/ModuleSidebar';
 import { ProjectSidebar } from '../components/layout/ProjectSidebar';
 import { WizardPanel } from '../components/layout/WizardPanel';
 import { ChatPanel } from '../components/layout/ChatPanel';
+import { Footer } from '../components/layout/Footer';
 
 type ViewMode = 'login' | 'app';
 
@@ -148,6 +149,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

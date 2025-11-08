@@ -126,7 +126,7 @@ export default function Home() {
       
       <div className="flex-1 flex overflow-hidden">
         {/* Desktop Layout: 4 columns */}
-        <div className="hidden 2xl:flex w-full gap-0">
+        <div className="hidden lg:flex w-full gap-0">
           {/* C1: Modules */}
           <div className="w-60" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ModuleSidebar />
@@ -148,8 +148,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Large screens: Hide chat in sheet */}
-        <div className="hidden xl:flex 2xl:hidden w-full gap-0">
+        {/* Medium screens: 3 columns */}
+        <div className="hidden md:flex lg:hidden w-full gap-0">
           {/* C1: Modules */}
           <div className="w-60" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ModuleSidebar />
@@ -168,8 +168,8 @@ export default function Home() {
           {/* TODO: C4 Chat Sheet - will implement in next steps */}
         </div>
 
-        {/* Medium screens: Hide modules+projects in sheet */}
-        <div className="flex xl:hidden w-full">
+        {/* Small screens: 1 column */}
+        <div className="flex md:hidden w-full">
           {/* Main content: Wizard */}
           <div className="flex-1">
             <WizardPanel />

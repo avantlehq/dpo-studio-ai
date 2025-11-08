@@ -32,7 +32,7 @@ export function Topbar({ onLogout, selectedModule = 'dpia', breadcrumb = ['DPIA 
               <h1 className="font-semibold text-2xl">
                 DPO<span className="text-primary">studio.ai</span>
               </h1>
-              <div className="text-base text-muted-foreground">v{APP_VERSION} • NAVIGATION</div>
+              <div className="text-base text-muted-foreground">v{APP_VERSION} • PROJECTS</div>
             </div>
           </div>
         </div>

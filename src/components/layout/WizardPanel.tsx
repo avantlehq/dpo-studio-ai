@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 interface WizardPanelProps {
   selectedModule?: string;
+  selectedProject?: string;
 }
 
 interface ModuleData {
@@ -45,7 +46,7 @@ const MODULE_CONTENT: Record<string, ModuleData> = {
   }
 };
 
-export function WizardPanel({ selectedModule = 'dpia' }: WizardPanelProps) {
+export function WizardPanel({ selectedModule = 'dpia', selectedProject }: WizardPanelProps) {
   const [currentStep] = useState(0);
   const moduleData = MODULE_CONTENT[selectedModule] || MODULE_CONTENT['dpia'];
   const { title, subtitle, steps, description } = moduleData;
@@ -105,11 +106,21 @@ export function WizardPanel({ selectedModule = 'dpia' }: WizardPanelProps) {
       <div className="flex-1 overflow-y-auto p-4">
         <div className="max-w-2xl space-y-8">
           <div>
-            <h3 className="text-lg font-semibold mb-3">
-              Step {currentStep + 1}: {steps[currentStep]}
-            </h3>
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-lg font-semibold">
+                Step {currentStep + 1}: {steps[currentStep]}
+              </h3>
+              {selectedProject && (
+                <div className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
+                  Project: {selectedProject}
+                </div>
+              )}
+            </div>
             <p className="text-sm text-muted-foreground">
-              {description}
+              {selectedProject 
+                ? `Working on project: ${selectedProject}. ${description}`
+                : description
+              }
             </p>
           </div>
 

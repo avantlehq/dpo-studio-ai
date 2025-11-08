@@ -18,6 +18,17 @@ interface Module {
   description: string;
 }
 
+interface Project {
+  id: string;
+  name: string;
+  type: 'dpia' | 'ropa' | 'ai_impact';
+  status: 'active' | 'draft' | 'completed' | 'review';
+  description: string;
+  lastUpdated: string;
+  assignee: string;
+  progress: number;
+}
+
 type ViewMode = 'login' | 'app';
 
 // Demo passwords for different access levels
@@ -35,6 +46,7 @@ export default function Home() {
   const [selectedModule, setSelectedModule] = useState<string>('dpia');
   const [currentView] = useState<string>('wizard');
   const [breadcrumb, setBreadcrumb] = useState<string[]>(['DPIA Studio']);
+  const [selectedProject, setSelectedProject] = useState<string>('');
 
   // Module names defined inline where needed
 
@@ -80,9 +92,25 @@ export default function Home() {
   const handleModuleSelect = (module: Module) => {
     setSelectedModule(module.id);
     setBreadcrumb([module.name]);
+    setSelectedProject(''); // Reset project selection when changing modules
     // Don't navigate away, keep the 4-column layout
     // Module content will be shown in the wizard panel
     console.log('Current view:', currentView); // Use currentView to avoid unused variable warning
+  };
+
+  const handleProjectSelect = (project: Project) => {
+    setSelectedProject(project.id);
+    setBreadcrumb([getModuleName(selectedModule), project.name]);
+  };
+
+  const getModuleName = (moduleId: string): string => {
+    const moduleNames: Record<string, string> = {
+      'dpia': 'DPIA Studio',
+      'ropa': 'ROPA Studio', 
+      'aiimpact': 'AI Impact',
+      'admin': 'Admin Panel'
+    };
+    return moduleNames[moduleId] || 'Unknown Module';
   };
 
   if (viewMode === 'login') {
@@ -157,12 +185,16 @@ export default function Home() {
           
           {/* C2: Projects */}
           <div className="w-80 bg-card border-r flex-shrink-0">
-            <ProjectSidebar />
+            <ProjectSidebar 
+              selectedModule={selectedModule} 
+              onProjectSelect={handleProjectSelect}
+              selectedProject={selectedProject}
+            />
           </div>
           
           {/* C3: Wizard - takes remaining space */}
           <div className="flex-1 bg-card min-w-0">
-            <WizardPanel selectedModule={selectedModule} />
+            <WizardPanel selectedModule={selectedModule} selectedProject={selectedProject} />
           </div>
           
           {/* C4: Chat */}

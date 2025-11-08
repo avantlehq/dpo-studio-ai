@@ -1,7 +1,7 @@
 export function ChatPanel() {
   return (
     <div className="h-full flex flex-col bg-muted/20">
-      <div className="p-3 border-b">
+      <div className="p-2 border-b bg-gradient-to-r from-violet-50 to-purple-50">
         <h2 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
           AI Assistant
         </h2>

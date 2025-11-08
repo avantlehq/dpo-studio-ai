@@ -20,7 +20,7 @@ const MODULES: Module[] = [
   {
     id: 'dpia',
     name: 'DPIA Studio',
-    color: 'bg-blue-500',
+    color: 'bg-gradient-to-r from-blue-500 to-blue-600',
     route: '/modules/dpia',
     status: 'active',
     description: 'Data Protection Impact Assessment wizard'
@@ -28,7 +28,7 @@ const MODULES: Module[] = [
   {
     id: 'ropa',
     name: 'ROPA Studio', 
-    color: 'bg-green-500',
+    color: 'bg-gradient-to-r from-green-500 to-green-600',
     route: '/modules/ropa',
     status: 'active',
     description: 'Records of Processing Activities management'
@@ -36,7 +36,7 @@ const MODULES: Module[] = [
   {
     id: 'aiimpact',
     name: 'AI Impact',
-    color: 'bg-purple-500', 
+    color: 'bg-gradient-to-r from-purple-500 to-purple-600', 
     route: '/modules/aiimpact',
     status: 'beta',
     description: 'AI system compliance assessment'
@@ -44,7 +44,7 @@ const MODULES: Module[] = [
   {
     id: 'admin',
     name: 'Admin Panel',
-    color: 'bg-gray-500',
+    color: 'bg-gradient-to-r from-gray-500 to-gray-600',
     route: '/admin',
     status: 'active',
     description: 'Platform administration and settings'
@@ -63,13 +63,10 @@ export function ModuleSidebar({ onModuleSelect, selectedModule }: ModuleSidebarP
 
   return (
     <div className="h-full flex flex-col bg-muted/20">
-      <div className="p-4 border-b">
-        <h2 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-1">
+      <div className="p-3 border-b bg-gradient-to-r from-orange-50 to-amber-50">
+        <h2 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
           Modules
         </h2>
-        <p className="text-xs text-muted-foreground">
-          GDPR Compliance Tools
-        </p>
       </div>
       
       <div className="flex-1 overflow-y-auto p-2 space-y-1">
@@ -85,31 +82,23 @@ export function ModuleSidebar({ onModuleSelect, selectedModule }: ModuleSidebarP
             onMouseEnter={() => setHoveredModule(module.id)}
             onMouseLeave={() => setHoveredModule(null)}
           >
-            <div className="flex items-start gap-3">
-              <div className={`w-3 h-3 rounded-full ${module.color} flex-shrink-0 mt-0.5`}></div>
+            <div className="flex items-center gap-3">
+              <div className={`w-4 h-4 rounded-full ${module.color} flex-shrink-0 shadow-sm`}></div>
               
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center justify-between">
                   <span className="text-sm font-medium truncate">{module.name}</span>
                   {module.status === 'beta' && (
-                    <span className="text-xs bg-orange-100 text-orange-700 px-1.5 py-0.5 rounded">
+                    <span className="text-xs bg-gradient-to-r from-orange-100 to-orange-200 text-orange-700 px-1.5 py-0.5 rounded-full font-medium">
                       BETA
                     </span>
                   )}
                   {module.status === 'coming_soon' && (
-                    <span className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">
+                    <span className="text-xs bg-gradient-to-r from-gray-100 to-gray-200 text-gray-600 px-1.5 py-0.5 rounded-full">
                       SOON
                     </span>
                   )}
                 </div>
-                
-                <p className={`text-xs text-muted-foreground transition-opacity duration-200 ${
-                  hoveredModule === module.id || selectedModule === module.id
-                    ? 'opacity-100' 
-                    : 'opacity-70'
-                }`}>
-                  {module.description}
-                </p>
               </div>
             </div>
             

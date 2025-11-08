@@ -53,7 +53,7 @@ export function WizardPanel({ selectedModule = 'dpia', selectedProject }: Wizard
 
   return (
     <div className="h-full flex flex-col bg-background">
-      <div className="p-3 border-b bg-card">
+      <div className="p-2 border-b bg-gradient-to-r from-sky-50 to-indigo-50">
         <div className="flex items-center justify-between mb-3">
           <div>
             <h2 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">

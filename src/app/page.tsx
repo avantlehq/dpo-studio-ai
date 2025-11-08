@@ -115,10 +115,10 @@ export default function Home() {
 
   if (viewMode === 'login') {
     return (
-      <main className="min-h-screen bg-background flex items-center justify-center px-4">
-        <div className="bg-card border border-border rounded-2xl p-8 w-full max-w-xs shadow-lg">
+      <main className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-indigo-50 flex items-center justify-center px-4">
+        <div className="bg-white/80 backdrop-blur border border-border/50 rounded-2xl p-8 w-80 max-w-sm shadow-xl">
           <div className="text-center mb-8">
-            <div className="h-12 w-12 rounded-xl bg-primary flex items-center justify-center mx-auto mb-4">
+            <div className="h-12 w-12 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center mx-auto mb-4 shadow-lg">
               <span className="text-primary-foreground font-bold text-xl">D</span>
             </div>
             <h1 className="text-3xl font-bold text-foreground mb-2">

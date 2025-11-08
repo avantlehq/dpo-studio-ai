@@ -109,7 +109,7 @@ export function ProjectSidebar({ selectedModule = 'dpia', onProjectSelect, selec
 
   return (
     <div className="h-full flex flex-col bg-muted/20">
-      <div className="p-3 border-b">
+      <div className="p-2 border-b bg-gradient-to-r from-green-50 to-emerald-50">
         <div className="flex items-center justify-between mb-3">
           <div>
             <h2 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">

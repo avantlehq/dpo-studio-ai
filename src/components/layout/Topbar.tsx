@@ -20,7 +20,7 @@ export function Topbar({ onLogout, selectedModule = 'dpia', breadcrumb = ['DPIA 
   const [, setIsSearchFocused] = useState(false);
 
   return (
-    <header className="h-24 border-b border-border bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/60 flex-shrink-0">
+    <header className="h-28 border-b border-border bg-gradient-to-r from-card/60 via-card/70 to-card/60 backdrop-blur supports-[backdrop-filter]:bg-card/60 flex-shrink-0">
       <div className="flex items-center justify-between h-full px-8">
         {/* Left section */}
         <div className="flex items-center gap-4">
@@ -32,7 +32,7 @@ export function Topbar({ onLogout, selectedModule = 'dpia', breadcrumb = ['DPIA 
               <h1 className="font-semibold text-2xl">
                 DPO<span className="text-primary">studio.ai</span>
               </h1>
-              <div className="text-base text-muted-foreground">v{APP_VERSION} • PROJECTS</div>
+              <div className="text-base text-muted-foreground">v{APP_VERSION} • POLISHED</div>
             </div>
           </div>
         </div>

@@ -122,7 +122,7 @@ export default function Home() {
   }
 
   return (
-    <div className="fixed inset-0 flex flex-col overflow-hidden bg-background">
+    <div className="fixed inset-0 flex flex-col overflow-hidden bg-background" style={{ height: '100vh', width: '100vw' }}>
       <Topbar onLogout={handleLogout} />
       
       <div className="flex-1 flex overflow-hidden">

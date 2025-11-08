@@ -12,7 +12,7 @@ export function ChatPanel() {
           </div>
           <div className="flex-1 bg-muted rounded-lg p-3">
             <p className="text-sm">
-              Hello! I'm your GDPR compliance assistant. I can help you with:
+              Hello! I&apos;m your GDPR compliance assistant. I can help you with:
             </p>
             <ul className="text-sm mt-2 space-y-1 text-muted-foreground">
               <li>• Data categorization</li>

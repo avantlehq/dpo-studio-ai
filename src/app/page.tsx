@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from "next/link";
 import { Topbar } from '../components/layout/Topbar';
 import { ModuleSidebar } from '../components/layout/ModuleSidebar';
 import { ProjectSidebar } from '../components/layout/ProjectSidebar';
@@ -50,7 +49,7 @@ export default function Home() {
       } else {
         setError('Invalid password. Contact admin for access credentials.');
       }
-    } catch (err) {
+    } catch {
       setError('Authentication failed. Please try again.');
     } finally {
       setIsLoading(false);
@@ -122,7 +121,7 @@ export default function Home() {
 
   return (
     <div className="h-screen flex flex-col bg-background">
-      <Topbar />
+      <Topbar onLogout={handleLogout} />
       
       <div className="flex-1 flex overflow-hidden">
         {/* Desktop Layout: 4 columns */}

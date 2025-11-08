@@ -124,26 +124,26 @@ export default function Home() {
     <div className="h-screen flex flex-col bg-background">
       <Topbar onLogout={handleLogout} />
       
-      <div className="flex-1 flex overflow-hidden">
-        {/* Always show 4 columns - let's fix responsivity later */}
-        <div className="flex w-full gap-0">
+      <div className="flex-1 flex overflow-hidden bg-red-100">
+        {/* DEBUG: Show all columns always for now */}
+        <div className="flex w-full gap-0 bg-blue-100">
           {/* C1: Modules */}
-          <div className="w-60 hidden sm:block" style={{ borderRight: '1px solid hsl(var(--border))' }}>
+          <div className="w-60 bg-green-200" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ModuleSidebar />
           </div>
           
           {/* C2: Projects */}
-          <div className="w-80 hidden md:block" style={{ borderRight: '1px solid hsl(var(--border))' }}>
+          <div className="w-80 bg-yellow-200" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ProjectSidebar />
           </div>
           
           {/* C3: Wizard */}
-          <div className="flex-1">
+          <div className="flex-1 bg-purple-200">
             <WizardPanel />
           </div>
           
           {/* C4: Chat */}
-          <div className="w-96 hidden lg:block" style={{ borderLeft: '1px solid hsl(var(--border))' }}>
+          <div className="w-96 bg-pink-200" style={{ borderLeft: '1px solid hsl(var(--border))' }}>
             <ChatPanel />
           </div>
         </div>

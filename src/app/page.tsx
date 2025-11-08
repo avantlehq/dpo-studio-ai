@@ -71,7 +71,7 @@ export default function Home() {
             </div>
             <h1 className="text-3xl font-bold text-foreground mb-2">
               DPO<span className="text-primary">studio.ai</span>
-              <span className="text-sm font-normal text-muted-foreground ml-2">v0.1.0</span>
+              <span className="text-sm font-normal text-muted-foreground ml-2">v1.0.0</span>
             </h1>
             <p className="text-muted-foreground">European GDPR Compliance Platform</p>
           </div>

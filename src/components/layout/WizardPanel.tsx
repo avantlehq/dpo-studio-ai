@@ -1,7 +1,7 @@
 export function WizardPanel() {
   return (
     <div className="h-full flex flex-col">
-      <div className="h-10 px-4 flex items-center justify-between border-b bg-muted/30">
+      <div className="h-10 px-4 flex items-center justify-between bg-muted/30" style={{ borderBottom: '1px solid hsl(var(--border))' }}>
         <h2 className="text-sm font-medium">DPIA Wizard</h2>
         <div className="flex items-center space-x-2">
           <button className="text-xs text-muted-foreground hover:text-foreground">
@@ -14,7 +14,7 @@ export function WizardPanel() {
       </div>
       
       {/* Stepper */}
-      <div className="px-4 py-3 border-b">
+      <div className="px-4 py-3" style={{ borderBottom: '1px solid hsl(var(--border))' }}>
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
             <div className="w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center">

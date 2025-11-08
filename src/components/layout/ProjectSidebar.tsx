@@ -1,7 +1,7 @@
 export function ProjectSidebar() {
   return (
     <div className="h-full flex flex-col">
-      <div className="h-10 px-4 flex items-center justify-between border-b bg-muted/30">
+      <div className="h-10 px-4 flex items-center justify-between bg-muted/30" style={{ borderBottom: '1px solid hsl(var(--border))' }}>
         <h2 className="text-sm font-medium">Projects</h2>
         <button className="text-xs text-muted-foreground hover:text-foreground">
           + New

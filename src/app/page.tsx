@@ -125,14 +125,14 @@ export default function Home() {
       
       <div className="flex-1 flex overflow-hidden">
         {/* Desktop Layout: 4 columns */}
-        <div className="hidden 2xl:flex w-full">
+        <div className="hidden 2xl:flex w-full gap-0">
           {/* C1: Modules */}
-          <div className="w-60 border-r">
+          <div className="w-60" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ModuleSidebar />
           </div>
           
           {/* C2: Projects */}
-          <div className="w-80 border-r">
+          <div className="w-80" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ProjectSidebar />
           </div>
           
@@ -142,20 +142,20 @@ export default function Home() {
           </div>
           
           {/* C4: Chat */}
-          <div className="w-96 border-l">
+          <div className="w-96" style={{ borderLeft: '1px solid hsl(var(--border))' }}>
             <ChatPanel />
           </div>
         </div>
 
         {/* Large screens: Hide chat in sheet */}
-        <div className="hidden xl:flex 2xl:hidden w-full">
+        <div className="hidden xl:flex 2xl:hidden w-full gap-0">
           {/* C1: Modules */}
-          <div className="w-60 border-r">
+          <div className="w-60" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ModuleSidebar />
           </div>
           
           {/* C2: Projects */}
-          <div className="w-80 border-r">
+          <div className="w-80" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ProjectSidebar />
           </div>
           

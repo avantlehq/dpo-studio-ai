@@ -4,7 +4,7 @@ interface TopbarProps {
 
 export function Topbar({ onLogout }: TopbarProps) {
   return (
-    <header className="h-12 border-b bg-background flex items-center justify-between px-4">
+    <header className="h-12 bg-background flex items-center justify-between px-4" style={{ borderBottom: '1px solid hsl(var(--border))' }}>
       <div className="flex items-center space-x-4">
         <div className="flex items-center space-x-2">
           <div className="w-6 h-6 rounded bg-primary flex items-center justify-center">

@@ -1,7 +1,7 @@
 export function ModuleSidebar() {
   return (
     <div className="h-full flex flex-col">
-      <div className="h-10 px-4 flex items-center border-b bg-muted/30">
+      <div className="h-10 px-4 flex items-center bg-muted/30" style={{ borderBottom: '1px solid hsl(var(--border))' }}>
         <h2 className="text-sm font-medium">Modules</h2>
       </div>
       <div className="flex-1 overflow-y-auto p-4 space-y-2">

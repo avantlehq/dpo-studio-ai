@@ -1,7 +1,7 @@
 export function ChatPanel() {
   return (
     <div className="h-full flex flex-col">
-      <div className="h-10 px-4 flex items-center border-b bg-muted/30">
+      <div className="h-10 px-4 flex items-center bg-muted/30" style={{ borderBottom: '1px solid hsl(var(--border))' }}>
         <h2 className="text-sm font-medium">AI Assistant</h2>
       </div>
       
@@ -52,7 +52,7 @@ export function ChatPanel() {
         </div>
       </div>
 
-      <div className="border-t p-4">
+      <div className="p-4" style={{ borderTop: '1px solid hsl(var(--border))' }}>
         <div className="flex space-x-2">
           <input 
             type="text" 

@@ -12,18 +12,18 @@ export function Topbar({ onLogout }: TopbarProps) {
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="flex h-20 items-center justify-between px-8 py-4">
+      <div className="flex h-24 items-center justify-between px-12 py-6">
         {/* Left section */}
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-4">
-            <div className="h-12 w-12 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">D</span>
+            <div className="h-16 w-16 rounded-xl bg-primary flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-2xl">D</span>
             </div>
             <div className="hidden sm:block">
-              <h1 className="font-semibold text-xl">
+              <h1 className="font-semibold text-2xl">
                 DPO<span className="text-primary">studio.ai</span>
               </h1>
-              <div className="text-sm text-muted-foreground">v{APP_VERSION} • LARGE</div>
+              <div className="text-base text-muted-foreground">v{APP_VERSION} • XXXL</div>
             </div>
           </div>
         </div>

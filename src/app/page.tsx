@@ -126,25 +126,25 @@ export default function Home() {
       <Topbar onLogout={handleLogout} />
       
       <div className="flex-1 flex overflow-hidden">
-        {/* Fixed 4-column layout */}
-        <div className="flex w-full gap-0 h-full">
+        {/* Desktop Layout: 4 columns - like Notes */}
+        <div className="flex w-full h-full">
           {/* C1: Modules */}
-          <div className="w-80 bg-card" style={{ borderRight: '1px solid hsl(var(--border))' }}>
+          <div className="w-80 bg-card border-r">
             <ModuleSidebar />
           </div>
           
           {/* C2: Projects */}
-          <div className="w-80 bg-card" style={{ borderRight: '1px solid hsl(var(--border))' }}>
+          <div className="w-80 bg-card border-r">
             <ProjectSidebar />
           </div>
           
-          {/* C3: Wizard */}
+          {/* C3: Wizard - takes remaining space */}
           <div className="flex-1 bg-card">
             <WizardPanel />
           </div>
           
           {/* C4: Chat */}
-          <div className="w-96 bg-card" style={{ borderLeft: '1px solid hsl(var(--border))' }}>
+          <div className="w-96 bg-card border-l">
             <ChatPanel />
           </div>
         </div>

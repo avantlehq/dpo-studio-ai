@@ -125,15 +125,15 @@ export default function Home() {
       <Topbar onLogout={handleLogout} />
       
       <div className="flex-1 flex overflow-hidden">
-        {/* Desktop Layout: 4 columns */}
-        <div className="hidden lg:flex w-full gap-0">
+        {/* Always show 4 columns - let's fix responsivity later */}
+        <div className="flex w-full gap-0">
           {/* C1: Modules */}
-          <div className="w-60" style={{ borderRight: '1px solid hsl(var(--border))' }}>
+          <div className="w-60 hidden sm:block" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ModuleSidebar />
           </div>
           
           {/* C2: Projects */}
-          <div className="w-80" style={{ borderRight: '1px solid hsl(var(--border))' }}>
+          <div className="w-80 hidden md:block" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ProjectSidebar />
           </div>
           
@@ -143,39 +143,9 @@ export default function Home() {
           </div>
           
           {/* C4: Chat */}
-          <div className="w-96" style={{ borderLeft: '1px solid hsl(var(--border))' }}>
+          <div className="w-96 hidden lg:block" style={{ borderLeft: '1px solid hsl(var(--border))' }}>
             <ChatPanel />
           </div>
-        </div>
-
-        {/* Medium screens: 3 columns */}
-        <div className="hidden md:flex lg:hidden w-full gap-0">
-          {/* C1: Modules */}
-          <div className="w-60" style={{ borderRight: '1px solid hsl(var(--border))' }}>
-            <ModuleSidebar />
-          </div>
-          
-          {/* C2: Projects */}
-          <div className="w-80" style={{ borderRight: '1px solid hsl(var(--border))' }}>
-            <ProjectSidebar />
-          </div>
-          
-          {/* C3: Wizard */}
-          <div className="flex-1">
-            <WizardPanel />
-          </div>
-          
-          {/* TODO: C4 Chat Sheet - will implement in next steps */}
-        </div>
-
-        {/* Small screens: 1 column */}
-        <div className="flex md:hidden w-full">
-          {/* Main content: Wizard */}
-          <div className="flex-1">
-            <WizardPanel />
-          </div>
-          
-          {/* TODO: Left/Right Sheets - will implement in next steps */}
         </div>
       </div>
     </div>

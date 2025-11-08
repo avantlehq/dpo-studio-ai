@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { APP_VERSION } from '@/lib/version';
 import { Topbar } from '../components/layout/Topbar';
 import { ModuleSidebar } from '../components/layout/ModuleSidebar';
 import { ProjectSidebar } from '../components/layout/ProjectSidebar';
@@ -71,7 +72,7 @@ export default function Home() {
             </div>
             <h1 className="text-3xl font-bold text-foreground mb-2">
               DPO<span className="text-primary">studio.ai</span>
-              <span className="text-sm font-normal text-muted-foreground ml-2">v1.0.0</span>
+              <span className="text-sm font-normal text-muted-foreground ml-2">v{APP_VERSION}</span>
             </h1>
             <p className="text-muted-foreground">European GDPR Compliance Platform</p>
           </div>

@@ -1,3 +1,5 @@
+import { APP_VERSION } from '@/lib/version';
+
 interface TopbarProps {
   onLogout?: () => void;
 }
@@ -11,6 +13,7 @@ export function Topbar({ onLogout }: TopbarProps) {
             <span className="text-primary-foreground font-bold text-xs">D</span>
           </div>
           <span className="font-semibold">DPO Studio</span>
+          <span className="text-xs text-muted-foreground">v{APP_VERSION}</span>
         </div>
         
         <div className="text-sm text-muted-foreground">

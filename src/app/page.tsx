@@ -7,7 +7,6 @@ import { ModuleSidebar } from '../components/layout/ModuleSidebar';
 import { ProjectSidebar } from '../components/layout/ProjectSidebar';
 import { WizardPanel } from '../components/layout/WizardPanel';
 import { ChatPanel } from '../components/layout/ChatPanel';
-import { Footer } from '../components/layout/Footer';
 
 type ViewMode = 'login' | 'app';
 
@@ -122,12 +121,12 @@ export default function Home() {
   }
 
   return (
-    <div className="h-screen flex flex-col bg-background max-w-7xl mx-auto">
+    <div className="h-screen flex flex-col bg-background">
       <Topbar onLogout={handleLogout} />
       
-      <div className="flex-1 flex overflow-hidden min-h-0">
+      <div className="flex-1 flex overflow-hidden">
         {/* Fixed 4-column layout */}
-        <div className="flex w-full gap-0 min-h-0">
+        <div className="flex w-full gap-0">
           {/* C1: Modules */}
           <div className="w-72 bg-card" style={{ borderRight: '1px solid hsl(var(--border))' }}>
             <ModuleSidebar />
@@ -149,8 +148,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }

@@ -125,7 +125,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-background">
       <Topbar onLogout={handleLogout} />
       
-      <div className="flex-1 flex overflow-hidden max-h-[calc(100vh-120px)]">
+      <div className="flex-1 flex overflow-hidden max-h-[calc(75vh-100px)]">
         {/* Fixed 4-column layout */}
         <div className="flex w-full gap-0 h-full">
           {/* C1: Modules */}

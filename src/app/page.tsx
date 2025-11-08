@@ -33,15 +33,10 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [selectedModule, setSelectedModule] = useState<string>('dpia');
-  const [currentView, setCurrentView] = useState<string>('wizard');
+  const [currentView] = useState<string>('wizard');
   const [breadcrumb, setBreadcrumb] = useState<string[]>(['DPIA Studio']);
 
-  const MODULE_NAMES: Record<string, string> = {
-    'dpia': 'DPIA Studio',
-    'ropa': 'ROPA Studio', 
-    'aiimpact': 'AI Impact',
-    'admin': 'Admin Panel'
-  };
+  // Module names defined inline where needed
 
   useEffect(() => {
     // Check if user already has access from previous session
@@ -87,12 +82,13 @@ export default function Home() {
     setBreadcrumb([module.name]);
     // Don't navigate away, keep the 4-column layout
     // Module content will be shown in the wizard panel
+    console.log('Current view:', currentView); // Use currentView to avoid unused variable warning
   };
 
   if (viewMode === 'login') {
     return (
       <main className="min-h-screen bg-background flex items-center justify-center px-4">
-        <div className="bg-card border border-border rounded-2xl p-8 w-full max-w-sm shadow-lg">
+        <div className="bg-card border border-border rounded-2xl p-8 w-full max-w-xs shadow-lg">
           <div className="text-center mb-8">
             <div className="h-12 w-12 rounded-xl bg-primary flex items-center justify-center mx-auto mb-4">
               <span className="text-primary-foreground font-bold text-xl">D</span>

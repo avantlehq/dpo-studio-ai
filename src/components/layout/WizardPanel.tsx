@@ -6,7 +6,15 @@ interface WizardPanelProps {
   selectedModule?: string;
 }
 
-const MODULE_CONTENT: Record<string, any> = {
+interface ModuleData {
+  title: string;
+  subtitle: string;
+  steps: string[];
+  currentStep: number;
+  description: string;
+}
+
+const MODULE_CONTENT: Record<string, ModuleData> = {
   'dpia': {
     title: 'DPIA Wizard',
     subtitle: 'Data Protection Impact Assessment',
@@ -38,7 +46,7 @@ const MODULE_CONTENT: Record<string, any> = {
 };
 
 export function WizardPanel({ selectedModule = 'dpia' }: WizardPanelProps) {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep] = useState(0);
   const moduleData = MODULE_CONTENT[selectedModule] || MODULE_CONTENT['dpia'];
   const { title, subtitle, steps, description } = moduleData;
 

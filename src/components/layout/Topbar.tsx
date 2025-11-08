@@ -17,7 +17,7 @@ const MODULE_NAMES: Record<string, string> = {
 
 export function Topbar({ onLogout, selectedModule = 'dpia', breadcrumb = ['DPIA Studio'] }: TopbarProps) {
   const [searchQuery, setSearchQuery] = useState('');
-  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [, setIsSearchFocused] = useState(false);
 
   return (
     <header className="h-24 border-b border-border bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/60 flex-shrink-0">

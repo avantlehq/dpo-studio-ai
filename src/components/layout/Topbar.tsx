@@ -11,7 +11,7 @@ export function Topbar({ onLogout }: TopbarProps) {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
 
   return (
-    <header className="h-16 border-b border-border bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/60 flex-shrink-0">
+    <header className="h-20 border-b border-border bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/60 flex-shrink-0">
       <div className="flex items-center justify-between h-full px-8">
         {/* Left section */}
         <div className="flex items-center gap-4">
@@ -23,13 +23,13 @@ export function Topbar({ onLogout }: TopbarProps) {
               <h1 className="font-semibold text-xl">
                 DPO<span className="text-primary">studio.ai</span>
               </h1>
-              <div className="text-sm text-muted-foreground">v{APP_VERSION} • COMPACT</div>
+              <div className="text-sm text-muted-foreground">v{APP_VERSION} • HEIGHT+COMPACT</div>
             </div>
           </div>
         </div>
 
         {/* Center - Search */}
-        <div className="flex-1 max-w-xs mx-6">
+        <div className="w-64 mx-8">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <input

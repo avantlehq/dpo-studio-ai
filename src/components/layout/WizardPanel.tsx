@@ -1,8 +1,8 @@
 export function WizardPanel() {
   return (
     <div className="h-full flex flex-col bg-background">
-      <div className="p-4 border-b bg-card">
-        <div className="flex items-center justify-between mb-4">
+      <div className="p-3 border-b bg-card">
+        <div className="flex items-center justify-between mb-3">
           <h2 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
             DPIA Wizard
           </h2>
@@ -41,7 +41,7 @@ export function WizardPanel() {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-6">
+      <div className="flex-1 overflow-y-auto p-4">
         <div className="max-w-2xl space-y-8">
           <div>
             <h3 className="text-lg font-semibold mb-3">Step 1: Data Mapping</h3>
